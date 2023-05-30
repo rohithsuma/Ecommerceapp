@@ -16,7 +16,7 @@ class SellerSerializer(serializers.ModelSerializer):
  
              
 class ProductSerializer(serializers.ModelSerializer):
-    is_enabled = serializers.BooleanField(default=True, write_only=True)
+    
     class Meta :
         model =models.Product
         fields="__all__"
