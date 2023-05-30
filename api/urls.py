@@ -6,6 +6,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    #Seller
     path("seller/",views.SellerList.as_view()),
     path("sellerDetail/<int:pk>/",views.SellerList.as_view()),
     #product
