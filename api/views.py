@@ -5,55 +5,83 @@ from rest_framework import generics,permissions
 
 
 
-class SellerList(generics.ListCreateAPIView):
+class SellerListView(generics.ListCreateAPIView):
     queryset = models.Seller.objects.all()
     serializer_class =serializers.SellerSerializer
-   # parser_classes = [permissions.IsAuthenticated]
     
-    
-class SellerDetail(generics.RetrieveUpdateDestroyAPIView):
+   
+class SellerDetailView(generics.RetrieveAPIView):
     queryset = models.Seller.objects.all()
-    serializer_class =serializers.SellerDetailSerializer
-    #parser_classes = [permissions.IsAuthenticated]
+    serializer_class =serializers.SellerSerializer
+    lookup_field = "pk"
+    
+class SellerUpdateView(generics.UpdateAPIView):
+    queryset = models.Seller.objects.all()
+    serializer_class = serializers.SellerSerializer
+    lookup_field  = 'pk'
+
+class SellerDeleteView (generics.DestroyAPIView):
+    queryset = models.Seller.objects.all()  
+    serializer_class = serializers.SellerSerializer
+    lookup_field = 'pk'
+    
+    
+   
+
+    
+    
 
 
-class ProductList(generics.ListCreateAPIView):
+class ProductListView (generics.ListCreateAPIView):
     queryset = models.Product.objects.all()
     serializer_class =serializers.ProductSerializer
-   # parser_classes = [permissions.IsAuthenticated]
-    
-    
-class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+   # Provide both list and create operations for the model
+   
+   
+class ProductDetailView(generics.RetrieveAPIView):
     queryset = models.Product.objects.all()
-    serializer_class =serializers.ProductDetailSerializer
-    #parser_classes = [permissions.IsAuthenticated]
+    serializer_class =serializers.ProductSerializer
+    lookup_field = "pk"
+    
+class ProductUpdateView(generics.UpdateAPIView):
+    queryset = models.Product.objects.all()
+    serializer_class = serializers.ProductSerializer
+    lookup_field  = 'pk'
+
+class ProductDeleteView (generics.DestroyAPIView):
+    queryset = models.Product.objects.all()  
+    serializer_class = serializers.ProductSerializer
+    lookup_field = 'pk'
+    
+    
 
 
 
-class BuyerList(generics.ListCreateAPIView):
-    queryset = models.Buyer.objects.all()
-    serializer_class =serializers.BuyerSerializer
-   # parser_classes = [permissions.IsAuthenticated]
-    
-    
-class BuyerDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Buyer.objects.all()
-    serializer_class =serializers.BuyerDetailSerializer
-    #parser_classes = [permissions.IsAuthenticated]
+
+
     
     
     
-class OrderList(generics.ListCreateAPIView):
+class OrderListView(generics.ListCreateAPIView):
     queryset = models.Order.objects.all()
     serializer_class =serializers.OrderSerializer
-   # parser_classes = [permissions.IsAuthenticated]
-    
-    
-class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
+   # Provide both list and create operations for the model
+ 
+class OrderDetailView(generics.RetrieveAPIView):
     queryset = models.Order.objects.all()
-    serializer_class =serializers.OrderDetailSerializer
-    #parser_classes = [permissions.IsAuthenticated]
+    serializer_class =serializers.OrderSerializer
+    lookup_field = "pk"
+    
+class OrderUpdateView(generics.UpdateAPIView):
+    queryset = models.Order.objects.all()
+    serializer_class = serializers.OrderSerializer
+    lookup_field  = 'pk'
 
+class OrderDeleteView (generics.DestroyAPIView):
+    queryset = models.Order.objects.all()  
+    serializer_class = serializers.OrderSerializer
+    lookup_field = 'pk'
+    
 
 
 

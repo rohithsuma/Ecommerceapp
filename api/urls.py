@@ -6,23 +6,26 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    #Seller
-    path("seller/",views.SellerList.as_view()),
-    path("sellerDetail/<int:pk>/",views.SellerList.as_view()),
-    #product
-    path("product/",views.ProductList.as_view()),
-    path("sellerDetail/<int:pk>/",views.ProductList.as_view()),
+    path("seller/",views.SellerListView.as_view()),
+    path("seller/<int:pk>/",views.SellerDetailView.as_view()),
+    path("seller/<int:pk>/update/",views.SellerUpdateView.as_view()),
+    path("seller/<int:pk>/delete/",views.SellerDeleteView.as_view()),
     
-    #Buyers
-    path("buyer/",views.BuyerList.as_view()),
-    path("buyerDetail/<int:pk>/",views.BuyerList.as_view()),
+    
+    #product
+    path("product/",views.ProductListView.as_view()),
+    path("product/<int:pk>/",views.ProductDetailView.as_view()),
+    path("product/<int:pk>/update/",views.ProductUpdateView.as_view()),
+    path("product/<int:pk>/delete/",views.ProductDeleteView.as_view()),
+    
     
     #order
     
-    path("order/",views.OrderList.as_view()),
-    path("orderDetail/<int:pk>/",views.OrderList.as_view()),
+    path("order/",views.OrderListView.as_view()),
+    path("order/<int:pk>/",views.OrderDetailView.as_view()),
+    path("order/<int:pk>/update/",views.OrderUpdateView.as_view()),
+    path("order/<int:pk>/delete/",views.OrderDeleteView.as_view()),
     
     
     
 ]
-
